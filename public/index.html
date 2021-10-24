@@ -1,0 +1,77 @@
+<!-- Copyright (c) Microsoft Corporation and contributors. All rights reserved. -->
+<!-- Licensed under the MIT License. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="PictoBox"
+      content="Web site created using create-react-app"
+    />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>PictoBox</title>
+    <style>
+      body {
+        background-color: #eee;
+        text-align: center;
+      }
+      canvas {
+        width: 95vw;
+        height: 95vw;
+        border: 2px solid #000;
+        cursor: crosshair;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <canvas id="c" width="1000" height="1000"></canvas>
+    <div>
+      LineColor:
+      <button onclick="sdb.setLineColor('#000')">black</button>
+      <button onclick="sdb.setLineColor('#f00')">red</button>
+      <button onclick="sdb.setLineColor('#0f0')">green</button>
+      <button onclick="sdb.setLineColor('#00f')">blue</button>
+    </div>
+    <div>
+      LineSize:
+      <button onclick="sdb.setLineSize(1)">thin</button>
+      <button onclick="sdb.setLineSize(15)">mid</button>
+      <button onclick="sdb.setLineSize(30)">bold</button>
+    </div>
+    <div>
+      Fill:
+      <button onclick="sdb.fill('#fff')">white</button>
+      <button onclick="sdb.fill('#000')">black</button>
+    </div>
+    <div>
+      Misc:
+      <button onclick="sdb.clear()">clear</button>
+      <button onclick="sdb.undo()">undo</button>
+      <button onclick="sdb.redo()">redo</button>
+    </div>
+
+    <script src="./simple-drawing-board.js"></script>
+    <script>
+        const c = document.getElementById("c");
+        window.sdb = new window.SimpleDrawingBoard(c);
+    </script>
+    <div id="root"></div>
+  </body>
+</html>
